@@ -1,14 +1,9 @@
 name: Generate Snake Animation
 
 on:
-  # Executa automaticamente a cada 6 horas
   schedule:
     - cron: "0 */6 * * *"
-  
-  # Permite executar manualmente
   workflow_dispatch:
-  
-  # Executa quando há push na branch main
   push:
     branches:
       - main
@@ -19,11 +14,9 @@ jobs:
     timeout-minutes: 10
     
     steps:
-      # Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
       
-      # Gera a animação da cobra
       - name: Generate Snake
         uses: Platane/snk@v2
         with:
@@ -32,7 +25,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      # Faz o push da animação gerada para a branch output
       - name: Push Snake Animation
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
