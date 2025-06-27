@@ -11,7 +11,7 @@ on:
   # Executa quando há push na branch main
   push:
     branches:
-    - main
+      - main
 
 jobs:
   generate:
@@ -28,10 +28,7 @@ jobs:
         uses: Platane/snk@v2
         with:
           github_user_name: VictorOlivei
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-            dist/github-contribution-grid-snake.gif
+          outputs: dist/github-contribution-grid-snake.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
